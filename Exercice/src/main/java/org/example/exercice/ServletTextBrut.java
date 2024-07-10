@@ -1,4 +1,4 @@
-package org.example.exercices;
+package org.example.exercice;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
