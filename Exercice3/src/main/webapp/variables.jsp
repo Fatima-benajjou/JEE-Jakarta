@@ -21,7 +21,7 @@
 
 <%--Avec Scriplet JSP--%>
 
-<table class="table">
+<table class="table table-success table-striped">
     <thead>
     <tr>
         <th scope="col">Prenom</th>
