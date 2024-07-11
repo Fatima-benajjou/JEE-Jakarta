@@ -38,6 +38,10 @@ public class ChatServlet extends HttpServlet {
         String repas = req.getParameter("repas");
         LocalDate date = LocalDate.parse(req.getParameter("date"));
 
+        chats.add(new Chat(nom, race, repas, date));
+        req.setAttribute("chats", chats);
+        req.getRequestDispatcher("/WEB-INF/addChat.jsp").forward(req, resp);
+
 
     }
 }
