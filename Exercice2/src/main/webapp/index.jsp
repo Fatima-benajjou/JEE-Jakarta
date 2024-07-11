@@ -14,5 +14,10 @@
 <br> Exercice 2
 
 <a href="servletImage">Mon Image</a>
+
+<br> Exercice 3
+
+<a href="servletTableau">Mon Tableau</a>
+
 </body>
 </html>
