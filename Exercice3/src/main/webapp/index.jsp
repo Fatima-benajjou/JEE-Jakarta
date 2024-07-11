@@ -10,5 +10,9 @@
 
 <a href="servletTableau">Mon Tableau</a>
 
+<br> Exercice 3 version 2
+<a href="servletPersonne">Mon Tableau 2</a>
+
+
 </body>
 </html>
