@@ -8,6 +8,6 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="chien/1234">Tableau de Chiens</a>
+<a href="chien/list">Tableau de Chiens</a>
 </body>
 </html>

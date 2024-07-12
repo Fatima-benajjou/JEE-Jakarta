@@ -20,7 +20,7 @@ public class ChienServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         chiens = new ArrayList<>();
-
+        chiens.add(new Chien("toto","troto", LocalDate.now()));
     }
 
     @Override
@@ -29,14 +29,15 @@ public class ChienServlet extends HttpServlet {
 //        String pathInfo = req.getPathInfo();
 //        switch (pathInfo) {
 //            case "/list":
+//                req.setAttribute("chiens", chiens);
 //                req.getRequestDispatcher("/list.jsp").forward(req, resp);
 //                break;
-//            case "/add" :
+//            case "/add":
 //                req.getRequestDispatcher("/add.jsp").forward(req, resp);
 //                break;
-//            case "/list/details":
+//            case "/details":
 //                req.getRequestDispatcher("/details.jsp").forward(req, resp);
-//
+//                break;
 //        }
 
         req.setAttribute("chiens", chiens);
@@ -46,7 +47,7 @@ public class ChienServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nom = req.getParameter("nom");
-        String race= req.getParameter("race");
+        String race = req.getParameter("race");
         LocalDate date = LocalDate.parse(req.getParameter("date"));
 
         Chien chien = new Chien(nom, race, date);

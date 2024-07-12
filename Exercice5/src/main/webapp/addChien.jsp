@@ -17,6 +17,7 @@
 <header>
     <h1>Ajouter un Chien</h1>
 </header>
+<div class="col-8 offset-2 text-bg-dark p-3">
 <form action="${pageContext.request.contextPath}/chienServlet" method="post">
     <div>
         <label for="nom">Nom :</label>
