@@ -27,7 +27,7 @@ public class ChatServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("chats", chats);
+        req.setAttribute("chats", chats);//cela renvoie la liste des chatsdans la page du navigateur
         req.getRequestDispatcher("/WEB-INF/addChat.jsp").forward(req, resp);
     }
 
@@ -37,10 +37,16 @@ public class ChatServlet extends HttpServlet {
         String race = req.getParameter("race");
         String repas = req.getParameter("repas");
         LocalDate date = LocalDate.parse(req.getParameter("date"));
+        System.out.println(nom);
+        System.out.println(race);
+        System.out.println(repas);
+        System.out.println(date);
 
         chats.add(new Chat(nom, race, repas, date));
-        req.setAttribute("chats", chats);
-        req.getRequestDispatcher("/WEB-INF/addChat.jsp").forward(req, resp);
+//        req.setAttribute("chats", chats); //cela renvoie la liste des chatsdans la page du navigateur
+//        req.getRequestDispatcher("/WEB-INF/addChat.jsp").forward(req, resp);
+        doGet(req,resp); // fait le meme taff que les 2ligne au dessus
+
 
 
     }

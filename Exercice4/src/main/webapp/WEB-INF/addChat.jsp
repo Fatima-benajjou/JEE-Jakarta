@@ -17,7 +17,7 @@
 <h1>Affichage de mon tableau </h1>
 
 <%--Avec Scriplet JSP--%>
-
+<%--<main class="container">--%>
 <table class="table">
     <thead>
     <tr>
@@ -43,7 +43,7 @@
 </body>
 
 
-<form action="chatServlet" method="post">
+<form action="${pageContext.request.contextPath}/chatServlet" method="post">
     <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" >
