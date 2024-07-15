@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%@include file="/WEB-INF/bootstrap.html"%>
     <title>Title</title>
 </head>
 <body>

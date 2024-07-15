@@ -20,38 +20,43 @@ public class ChienServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         chiens = new ArrayList<>();
-        chiens.add(new Chien("toto","troto", LocalDate.now()));
+        chiens.add(new Chien(1, "toto", "troto", LocalDate.now()));
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        String pathInfo = req.getPathInfo();
-//        switch (pathInfo) {
-//            case "/list":
-//                req.setAttribute("chiens", chiens);
-//                req.getRequestDispatcher("/list.jsp").forward(req, resp);
-//                break;
-//            case "/add":
-//                req.getRequestDispatcher("/add.jsp").forward(req, resp);
-//                break;
-//            case "/details":
-//                req.getRequestDispatcher("/details.jsp").forward(req, resp);
-//                break;
-//        }
+        String pathInfo = req.getPathInfo().substring(1);
+        System.out.println(pathInfo);
+        System.out.println(chiens);
+        switch (pathInfo) {
+            case "listChien":
+                System.out.println("passage du listChien");
+                req.setAttribute("chiens", chiens);
+                req.getRequestDispatcher("/listChien.jsp").forward(req, resp);
+                break;
+            case "addChien":
+                req.getRequestDispatcher("/addChien.jsp").forward(req, resp);
+                break;
+            case "detailChien":
+                String idChien = req.getParameter("id");
+                req.setAttribute("id", idChien);
+                req.getRequestDispatcher("/detailChien.jsp").forward(req, resp);
+                break;
+        }
 
-        req.setAttribute("chiens", chiens);
-        req.getRequestDispatcher("/listChien.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
         String nom = req.getParameter("nom");
         String race = req.getParameter("race");
         LocalDate date = LocalDate.parse(req.getParameter("date"));
-
-        Chien chien = new Chien(nom, race, date);
+        System.out.println("chien crée");
+        Chien chien = new Chien(id, nom, race, date);
         chiens.add(chien);
         doGet(req, resp);
+
     }
 }

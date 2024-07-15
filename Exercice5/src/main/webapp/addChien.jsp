@@ -6,19 +6,27 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="chiens" type="java.util.ArrayList<org.example.exercice5.Chien>" scope="request" />
+<%--<jsp:useBean id="chiens" type="java.util.ArrayList<org.example.exercice5.Chien>" scope="request" />--%>
 <html>
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <%@include file="/WEB-INF/bootstrap.html"%>
     <title>Chiens</title>
 </head>
-<body>
+
+<main class="container p-3 text-bg-dark rounded">
 <header>
     <h1>Ajouter un Chien</h1>
 </header>
-<div class="col-8 offset-2 text-bg-dark p-3">
-<form action="${pageContext.request.contextPath}/chienServlet" method="post">
+
+
+<%--<div class="col-8 offset-2 text-bg-dark p-3">--%>
+
+<form  class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/chien/listChien" method="post">
+
+    <div>
+        <label for="id">Id :</label>
+        <input type="number" id="id" name="id" >
+    </div>
     <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" >
@@ -34,11 +42,11 @@
     </div>
 
 
-    <button>Ajouter</button>
+    <button onclick="location.href='${pageContext.request.contextPath}/chien/listChien'" type ="button"> Ajouter </button>
+
+
 
 </form>
+</main>
 
-
-
-</body>
 </html>
