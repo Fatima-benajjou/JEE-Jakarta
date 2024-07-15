@@ -28,7 +28,7 @@
                 <tbody>
                 <% for (int i = 0; i < chiens.size(); i++) {%>
                 <tr>
-                    <td><%= i + 1 %>
+                    <td><%= chiens.get(i).getId()%>
                     </td>
                     <td><%= chiens.get(i).getNom()%>
                     </td>
@@ -36,7 +36,7 @@
                     </td>
                     <td><%= chiens.get(i).getDate() %>
                     </td>
-<%--                    <td><a href="${pageContext.request.contextPath}/chien/detailChien?id=${chiens.getId()}" class="btn btn-outline-primary">Détails</a></td>--%>
+                    <td><a href="${pageContext.request.contextPath}/chien/detailChien?id=${chiens.get(i).getId()}" class="btn btn-outline-primary">Détails</a></td>
                 </tr>
                 <% }%>
                 </tbody>

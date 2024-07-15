@@ -42,7 +42,7 @@
     </div>
 
 
-    <button onclick="location.href='${pageContext.request.contextPath}/chien/listChien'" type ="button"> Ajouter </button>
+    <button > Ajouter </button>
 
 
 
