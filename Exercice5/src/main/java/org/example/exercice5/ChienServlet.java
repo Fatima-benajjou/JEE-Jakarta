@@ -20,7 +20,7 @@ public class ChienServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         chiens = new ArrayList<>();
-        chiens.add(new Chien(1, "toto", "troto", LocalDate.now()));
+        chiens.add(new Chien( "toto", "troto", LocalDate.now()));
     }
 
     @Override
@@ -49,12 +49,12 @@ public class ChienServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+//        int id = Integer.parseInt(req.getParameter("id"));
         String nom = req.getParameter("nom");
         String race = req.getParameter("race");
         LocalDate date = LocalDate.parse(req.getParameter("date"));
         System.out.println("chien crée");
-        Chien chien = new Chien(id, nom, race, date);
+        Chien chien = new Chien( nom, race, date);
         chiens.add(chien);
         doGet(req, resp);
 

@@ -1,13 +1,26 @@
 package org.example.exercice5;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import javax.annotation.processing.Generated;
 import java.time.LocalDate;
 
+@Entity
 public class Chien {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String nom;
     private String race;
     private LocalDate date;
 
+    public Chien() {
+    }
 
     public int getId() {
         return id;
@@ -43,8 +56,8 @@ public class Chien {
         this.date = date;
     }
 
-    public Chien(int id, String nom, String race, LocalDate date) {
-        this.id = id;
+    public Chien(String nom, String race, LocalDate date) {
+//        this.id = id;
         this.nom = nom;
         this.race = race;
         this.date = date;

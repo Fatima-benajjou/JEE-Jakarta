@@ -23,10 +23,10 @@
 
 <form  class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/chien/listChien" method="post">
 
-    <div>
-        <label for="id">Id :</label>
-        <input type="number" id="id" name="id" >
-    </div>
+<%--    <div>--%>
+<%--        <label for="id">Id :</label>--%>
+<%--        <input type="number" id="id" name="id" >--%>
+<%--    </div>--%>
     <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" >
