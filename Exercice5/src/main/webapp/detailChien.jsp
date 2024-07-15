@@ -2,16 +2,52 @@
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 12/07/2024
-  Time: 15:27
+  Time: 13:30
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<jsp:useBean id="chiens" type="java.util.ArrayList<org.example.exercice5.Chien>" scope="request" />--%>
+<jsp:useBean id="chien" type="org.example.exercice5.Chien" scope="request" />
+
 <html>
 <head>
     <%@include file="/WEB-INF/bootstrap.html"%>
-    <title>Title</title>
+    <title>Chiens</title>
 </head>
-<body>
 
-</body>
+<main class="container p-3 text-bg-dark rounded">
+    <header>
+        <h1>Ajouter un Chien</h1>
+    </header>
+
+
+    <%--<div class="col-8 offset-2 text-bg-dark p-3">--%>
+
+    <form  class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/chien/listChien" method="post">
+
+        <%--    <div>--%>
+        <%--        <label for="id">Id :</label>--%>
+        <%--        <input type="number" id="id" name="id" >--%>
+        <%--    </div>--%>
+        <div class="input-group mb-3">
+            <label for="nom">Nom :</label>
+            <input class="form-control" type="text" aria-label="nom" value="<%=chien.getNom()%>" id="nom" name="nom" required>
+        </div>
+        <div class="input-group mb-3">
+            <label for="race">Race :</label>
+            <input class="form-control" type="text" aria-label="race" value="<%=chien.getRace()%>" id="race" name="race" >
+        </div>
+
+        <div class="input-group mb-3">
+            <label for="date">Date Naissance :</label>
+            <input class="form-control" type="date" aria-label="date" value="<%=chien.getDate()%>" id="date" name="date" >
+        </div>
+
+
+
+
+
+    </form>
+</main>
+
 </html>

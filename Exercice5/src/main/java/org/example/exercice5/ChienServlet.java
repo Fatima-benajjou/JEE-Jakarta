@@ -40,7 +40,8 @@ public class ChienServlet extends HttpServlet {
                 break;
             case "detailChien":
                 String idChien = req.getParameter("id");
-                req.setAttribute("id", idChien);
+                Chien chien = chiens.get(Integer.parseInt(idChien));
+                req.setAttribute("chien", chien);
                 req.getRequestDispatcher("/detailChien.jsp").forward(req, resp);
                 break;
         }
@@ -56,7 +57,10 @@ public class ChienServlet extends HttpServlet {
         System.out.println("chien crée");
         Chien chien = new Chien( nom, race, date);
         chiens.add(chien);
+
         doGet(req, resp);
+
+
 
     }
 }

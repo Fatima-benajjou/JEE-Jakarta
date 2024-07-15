@@ -14,39 +14,38 @@
 </head>
 
 <main class="container p-3 text-bg-dark rounded">
-<header>
-    <h1>Ajouter un Chien</h1>
-</header>
+    <header>
+        <h1>Ajouter un Chien</h1>
+    </header>
 
 
-<%--<div class="col-8 offset-2 text-bg-dark p-3">--%>
+    <%--<div class="col-8 offset-2 text-bg-dark p-3">--%>
 
-<form  class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/chien/listChien" method="post">
+    <form  class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/chien/listChien" method="post">
 
-<%--    <div>--%>
-<%--        <label for="id">Id :</label>--%>
-<%--        <input type="number" id="id" name="id" >--%>
-<%--    </div>--%>
-    <div>
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" >
-    </div>
-    <div>
-        <label for="race">Race :</label>
-        <input type="text" id="race" name="race" >
-    </div>
+        <%--    <div>--%>
+        <%--        <label for="id">Id :</label>--%>
+        <%--        <input type="number" id="id" name="id" >--%>
+        <%--    </div>--%>
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" aria-label="nom" placeholder="Nom" id="nom" name="nom" required>
+        </div>
+        <div>
+            <label for="race">Race :</label>
+            <input class="form-control" type="text" id="race" name="race" >
+        </div>
 
-    <div>
-        <label for="date">Date Naissance :</label>
-        <input type="date" id="date" name="date" >
-    </div>
-
-
-    <button > Ajouter </button>
+        <div>
+            <label for="date">Date Naissance :</label>
+            <input class="form-control" type="date" id="date" name="date" >
+        </div>
 
 
+        <button > Ajouter </button>
 
-</form>
+
+
+    </form>
 </main>
 
 </html>
