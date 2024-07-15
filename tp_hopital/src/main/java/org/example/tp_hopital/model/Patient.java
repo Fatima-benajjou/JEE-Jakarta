@@ -1,10 +1,20 @@
 package org.example.tp_hopital.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@NoArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
 
 public class Patient {
 
@@ -14,6 +24,9 @@ public class Patient {
     private String firstname;
     private String lastname;
     private LocalDate birthdate;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Consultation> consultations;
 
     public Patient(int id, String firstname, String lastname, LocalDate birthdate) {
         this.id = id;
