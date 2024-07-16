@@ -1,6 +1,9 @@
 <%@ page import="org.example.tp_hopital.model.Patient" %>
 <jsp:useBean id="consultations" type="java.util.ArrayList<org.example.tp_hopital.model.Consultation> " scope="request"/>
 <jsp:useBean id="patients" type="java.util.ArrayList<org.example.tp_hopital.model.Patient> " scope="request"/>
+<jsp:useBean id="patient" type = "org.example.tp_hopital.model.Patient" scope="request"/>
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -39,11 +42,11 @@
         <div class="col-12 col-md-4 patient-info">
             <h3>Informations du patient</h3>
 
-<% for (Patient p : patients){%>
-            <p><strong>Nom:</strong><%= p.getLastname()%></p>
-            <p><strong>Prénom:</strong><%= p.getFirstname()%></p>
-            <p><strong>Date de Naissance:</strong><%= p.getBirthdate()%></p>
-            <% }%>
+
+            <p><strong>Nom:</strong><%= patient.getLastname()%></p>
+            <p><strong>Prénom:</strong><%= patient.getFirstname()%></p>
+            <p><strong>Date de Naissance:</strong><%= patient.getBirthdate()%></p>
+
         </div>
     </div>
 
@@ -64,8 +67,7 @@
             </div>
         </div>
     </div>
-
-    <!-- Liste des consultations -->
+    <h2> Listes des consultation</h2>
 
     <div class="row mb-4">
         <div class="col-12">
@@ -81,14 +83,13 @@
                 </thead>
                 <tbody>
 
-                <!-- Les lignes de consultations seront ajoutées ici -->
 
                 <tr>
-                    <td>15/03/2024</td>
+                    <td>Date de la consultation 1</td>
                     <td>Consultation annuelle, tout est normal.</td>
                 </tr>
                 <tr>
-                    <td>10/02/2023</td>
+                    <td>Date de la consultation 2</td>
                     <td>Suivi après traitement, amélioration notable.</td>
                 </tr>
                 </tbody>
