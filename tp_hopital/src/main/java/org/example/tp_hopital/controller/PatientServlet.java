@@ -5,45 +5,72 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.tp_hopital.model.Patient;
 import org.example.tp_hopital.service.PatientService;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "patientServlet", value = "/patient/*")
 public class PatientServlet extends HttpServlet {
-    private PatientService patientService;
-    private List<Patient> patients;
+
+    //    private PatientService patientService;
+    private List<Patient> patients ;
 
     @Override
-
-
     public void init() throws ServletException {
-        patientService = new PatientService();
+//        patientService = new PatientService();
+        patients = new ArrayList<>();
+
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getPathInfo();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getPathInfo();
+        HttpSession session = req.getSession();
+        boolean logged = session.getAttribute("isLogged") != null && (boolean) session.getAttribute("isLogged");
+        req.setAttribute("isLogged", logged);
         switch (action) {
             case "/listPatient":
-                request.setAttribute("patients", patients);
-                request.getRequestDispatcher("/listPatient.jsp").forward(request, response);
-        break;
-//
-//        case "/addPatient":
-//            request.getRequestDispatcher("/addPatient.jsp").forward(request, response);
-//        break;
-//            case "/detailPatient":
-//                int idPatient = Integer.parseInt(request.getParameter("id"));
-//                Patient patient = patientService.getPatientById(idPatient);
-//                request.setAttribute("patient", patient);
-//                request.getRequestDispatcher("/detailPatient.jsp").forward(request, response);
+                req.setAttribute("patients", patients);
+                req.getRequestDispatcher("/WEB-INF/listPatient.jsp").forward(req, resp);
+                break;
 
+            case "/accueil":
 
+                PrintWriter out = resp.getWriter();
+                out.println("<html><body>");
+                out.println("<h1>  Bienvenue dans l'accueil de l'hopital Blablabla </h1>");
+                out.println("</body></html>");
+                break;
+            case "/detailPatient":
+                int idPatient = Integer.parseInt(req.getParameter("id"));
+                Patient patient = patients.get(idPatient);
+                req.setAttribute("patient", patient);
+                req.getRequestDispatcher("/WEB-INF/detailPatient.jsp").forward(req, resp);
 
+break;
         }
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String lastName = req.getParameter("lastName");
+        String firstName = req.getParameter("firstName");
+        LocalDate birthDate = LocalDate.parse(req.getParameter("birthDate"));
+//        patientService.create(lastName, firstName, birthDate);
+//        resp.sendRedirect("listPatient");
+        Patient patient = new Patient(firstName, lastName, birthDate);
+        patients.add(patient);
 
+        req.setAttribute("patients", patients);
+        req.getRequestDispatcher("/WEB-INF/listPatient.jsp").forward(req, resp);
+    }
 }
+
+
+

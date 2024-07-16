@@ -28,8 +28,8 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     private List<Consultation> consultations;
 
-    public Patient(int id, String firstname, String lastname, LocalDate birthdate) {
-        this.id = id;
+    public Patient( String firstname, String lastname, LocalDate birthdate) {
+//        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.birthdate = birthdate;

@@ -4,6 +4,7 @@ import org.example.tp_hopital.model.Patient;
 import org.example.tp_hopital.repository.PatientRepo;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class PatientService {
@@ -44,4 +45,7 @@ public class PatientService {
         return patientRepo.findById(Patient.class, id);
     }
 
+    public List<Patient> getAllPatients(){
+        return patientRepo.findAll(Patient.class);
+    }
 }
