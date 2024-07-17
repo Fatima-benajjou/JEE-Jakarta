@@ -134,7 +134,7 @@
             </td>
             <td><%=patients.get(i).getBirthdate()  %>
             </td>
-            <td><a href="${pageContext.request.contextPath}/patient/infoPatient?id=${patients.get(i).getId()}"
+            <td><a href="${pageContext.request.contextPath}/patient/infoPatient?id=<%=patients.get(i).getId()%>"
                                class="btn btn-outline-primary">Détails</a></td>
         </tr>
         <% }%>

@@ -19,7 +19,7 @@ import java.util.List;
 public class PatientServlet extends HttpServlet {
 
     //    private PatientService patientService;
-    private List<Patient> patients ;
+    private List<Patient> patients;
 
     @Override
     public void init() throws ServletException {
@@ -53,7 +53,15 @@ public class PatientServlet extends HttpServlet {
                 req.setAttribute("patient", patient);
                 req.getRequestDispatcher("/WEB-INF/detailPatient.jsp").forward(req, resp);
 
-break;
+                break;
+
+            case "/infoPatient":
+                int idPatientInfo =Integer.parseInt(req.getParameter("id"));
+                Patient patientInfo = patients.get(idPatientInfo);
+                req.setAttribute("patient", patientInfo);
+                req.setAttribute("consultations", patientInfo.getConsultations());
+                req.getRequestDispatcher("/WEB-INF/infoPatient.jsp").forward(req, resp);
+
         }
     }
 

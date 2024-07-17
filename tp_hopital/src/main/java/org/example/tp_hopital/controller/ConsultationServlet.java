@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet (name ="consultationServlet", value ="/consultation/*")
+@WebServlet (name ="consultationServlet", value ="/consultation")
 public class ConsultationServlet extends HttpServlet {
     private List<Consultation> consultations;
 
