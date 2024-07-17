@@ -37,6 +37,7 @@
 
     <div class="row mb-4">
         <div class="col-md-8 offset-md-2">
+            <h3> Rechercher un patient </h3>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Rechercher un patient">
                 <div class="input-group-append">
@@ -52,7 +53,6 @@
 
         <div class="col-md-8 offset-md-2">
 
-            <h3>Ajouter un Patient</h3>
             <form action="${pageContext.request.contextPath}/connection" method="post">
             <div class="container">
                 <div class="login-container">
@@ -72,7 +72,10 @@
                     </form>
                 </div>
             </div>
+
                     <%if (session.getAttribute("islogged") != null && (boolean) session.getAttribute("islogged")) {%>
+
+                <h3>Ajouter un Patient</h3>
 
     <form action="${pageContext.request.contextPath}/patient/listPatient" method="post">
 
@@ -94,16 +97,15 @@
 
         <button class="btn btn-violet">Valider</button>
         </div>
-        <%} else {%>
-        <a href="${pageContext.request.contextPath}/connection" class="btn btn-primary bg-primary">Se connecter</a>
+        <%}
+        else {%>
+        <h3> Liste des Patients </h3>
         <%}%>
 
 
         <br>
         <br>
 
-
-        <h3> Liste des Patients </h3>
     </form>
 
         </div>

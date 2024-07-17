@@ -1,13 +1,10 @@
 <%@ page import="org.example.tp_hopital.model.Patient" %>
 <%--<jsp:useBean id="consultations" type="java.util.ArrayList<org.example.tp_hopital.model.Consultation> " scope="request"/>--%>
 <jsp:useBean id="patient" type = "org.example.tp_hopital.model.Patient" scope="request"/>
-<%--<jsp:useBean id="patients" type="java.util.ArrayList<org.example.tp_hopital.model.Patient> " scope="request"/>--%>
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <%@include file="bootstrap.html" %>
